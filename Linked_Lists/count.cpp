@@ -19,9 +19,11 @@ int count(struct node* head, int frequency) {
     int count = 0;
 
     while (current != NULL) {
-        if (current->value == frequency) {
+        
+        if(current->value == frequency) {
             count++;
         }
+        
         current = current->next;
     }
 
@@ -34,14 +36,14 @@ void insert(struct node** root,struct node** prev, struct node** current, int el
     (*current)->value = element;
 		
     if((*root) == NULL) {
-    (*root) = (*current); 
+        (*root) = (*current); 
     }
 	 
     else{
-    (*prev)->next = (*current); 
+        (*prev)->next = (*current); 
     }
     
-    (*prev) = (*current);
+	(*prev) = (*current);
 }
 
 int main() {
