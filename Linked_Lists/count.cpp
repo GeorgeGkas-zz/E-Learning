@@ -12,9 +12,7 @@ node* create_node() {
     ret->next = NULL;
 } 
 
-
 int count(struct node* head, int frequency) {
-	
     struct node* current = head;
     int count = 0;
 
@@ -31,14 +29,12 @@ int count(struct node* head, int frequency) {
 }
 
 void insert(struct node** root,struct node** prev, struct node** current, int element) {
-	
     (*current) = create_node();
     (*current)->value = element;
-		
+	
     if((*root) == NULL) {
         (*root) = (*current); 
     }
-	 
     else{
         (*prev)->next = (*current); 
     }
@@ -47,7 +43,6 @@ void insert(struct node** root,struct node** prev, struct node** current, int el
 }
 
 int main() {
-	
 	int frequency = 0, n = 0;
 	node* root = NULL;
 	node* current, * prev;
@@ -60,13 +55,11 @@ int main() {
 	scanf("%i", &n);
 	printf("Now insert %d numbers\n",n);
 	
-	
 	for (int i = 0; i < n; ++i) {
             int element;
             scanf("%d", &element);		
             insert(&root,&prev,&current,element);
 	}
-	
 	
 	printf("\nNow printing elements:\n");
 	current = root;
@@ -76,6 +69,5 @@ int main() {
             current = current->next;
 	} 
 	
-	printf("count of %d is %d",frequency, count(root, frequency)); 
-	
+	printf("count of %d is %d",frequency, count(root, frequency));
 }
