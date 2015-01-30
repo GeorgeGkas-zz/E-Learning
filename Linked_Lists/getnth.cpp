@@ -69,5 +69,5 @@ int main() {
 	} 
 	
 	printf("Value in index %d is %d",index,getNth(root,index));
-	
+	return 0;
 }
