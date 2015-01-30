@@ -16,10 +16,9 @@ int count(struct node* head, int frequency) {
     int count = 0;
 
     while (current != NULL) {
-        if (current->value == frequency) {
-            count++;
+       if (current->value == frequency) {
+           count++;
         }
-        
     current = current->next;
     }
     
@@ -68,4 +67,5 @@ int main() {
     }   
 
     printf("count of %d is %d", frequency, count(root, frequency));
+    return 0;
 }
