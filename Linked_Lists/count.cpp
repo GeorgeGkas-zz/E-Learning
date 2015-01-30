@@ -41,31 +41,31 @@ void insert(struct node** root, struct node** prev, struct node** current, int e
 }
 
 int main() {
-	int frequency = 0, n = 0;
-	node* root = NULL;
-	node* current, * prev;
+    int frequency = 0, n = 0;
+    node* root = NULL;
+    node* current, * prev;
 	
-	printf("give frequency number to count\n");
-	scanf("%i", &frequency);
-	printf("frequency number to count is %d\n", frequency);
-	
-	printf("How many numbers want to insert?");
-	scanf("%i", &n);
-	printf("Now insert %d numbers\n", n);
-	
-	for (int i = 0; i < n; ++i) {
-            int element;
-            scanf("%d", &element);		
-            insert(&root, &prev, &current, element);
-	}
-	
-	printf("\nNow printing elements:\n");
-	current = root;
-	
-	while (current != NULL) {
-            printf("%i\n", current->value);
-            current = current->next;
-	} 
+    printf("give frequency number to count\n");
+    scanf("%i", &frequency);
+    printf("frequency number to count is %d\n", frequency);
 
-	printf("count of %d is %d", frequency, count(root, frequency));
+    printf("How many numbers want to insert?");
+    scanf("%i", &n);
+    printf("Now insert %d numbers\n", n);
+
+    for (int i = 0; i < n; ++i) {
+        int element;
+        scanf("%d", &element);		
+        insert(&root, &prev, &current, element);
+    }
+
+    printf("\nNow printing elements:\n");
+    current = root;
+
+    while (current != NULL) {
+        printf("%i\n", current->value);
+        current = current->next;
+    }   
+
+    printf("count of %d is %d", frequency, count(root, frequency));
 }
