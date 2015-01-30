@@ -16,7 +16,7 @@ void insert(struct node** root, struct node** prev, struct node** current, int e
 	(*current)->value = element;
 	
 	if((*root)==NULL) {
-		(*root)=(*current);
+        (*root)=(*current);
     }
 	else {
         (*prev)->next = (*current);
