@@ -15,10 +15,10 @@ void insert(struct node** root, struct node** prev, struct node** current, int e
 	(*current) = create_node();
 	(*current)->value = element;
 	
-	if((*root)==NULL) {
+    if((*root)==NULL) {
         (*root)=(*current);
     }
-	else {
+    else {
         (*prev)->next = (*current);
     }
 
