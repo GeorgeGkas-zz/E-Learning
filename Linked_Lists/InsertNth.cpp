@@ -44,28 +44,28 @@ int main() {
     /*=========================================*/
     //I couldn't pass it to function
     current = root; 
-	for (int i = 0; i < INDEX; i++) {
-		current = current->next;
-	} 
+    for (int i = 0; i < INDEX; i++) {
+    	current = current->next;
+     } 
     
     //Try to make a cycle linked list
     if (current->next == NULL) {
         current->next = root;
     }
     
-	node* new_item = create_node();
-	new_item->value = DATA;
-	new_item->next = current->next;
-	current->next = new_item;
+    node* new_item = create_node();
+    new_item->value = DATA;
+    new_item->next = current->next;
+    current->next = new_item;
     /*=========================================*/
     
     //FALSE OUTPUT WHY?
     printf("\nNow printing elements:\n");
-	current = root;
-	while (current != NULL) {
+    current = root;
+    while (current != NULL) {
         printf("%i\n", current->value);
         current = current->next;
-	} 
+    } 
     
     return SUCCESS;
 }
