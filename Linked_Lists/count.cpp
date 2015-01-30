@@ -66,6 +66,6 @@ int main() {
             printf("%i\n", current->value);
             current = current->next;
 	} 
-	
+
 	printf("count of %d is %d", frequency, count(root, frequency));
 }
