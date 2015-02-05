@@ -33,10 +33,7 @@ int main()
     int bestA = 0, bestB = 0, bestMin = INT_MAX;
     int A, B;
     int i;
-    int Permutations = (1 + 0.5*N*(N-3));
-    printf("\n\tNumber of Permutations need : %d \n", Permutations);
-      puts("\t--------------------------------");
-      
+
     for (int A = 1; A < N - 2; A++) {
         int ProfitA = sum_array(array,0, A - 1);
         int ProfitB = array[A];
