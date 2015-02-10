@@ -7,20 +7,13 @@ int main()
 
     for ();
  
-    for ()
-    {
-	
-    	if () {
-        for();
-        for();
-        for();
+    for () {
+        if () {
+            for();
+            for();
+            for();
 	
             if( );
-	   
-	}
-	else break;
-
-
-       
+        }
     }
 }
