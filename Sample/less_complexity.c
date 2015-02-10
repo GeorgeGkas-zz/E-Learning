@@ -12,6 +12,8 @@ int main()
 	
     	if () {
         for();
+        for();
+        for();
 	
             if( );
 	   
