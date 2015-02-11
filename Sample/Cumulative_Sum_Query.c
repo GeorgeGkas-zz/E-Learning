@@ -13,7 +13,6 @@ struct node {
 	int last;
 };
 
-
 int sum_array(int *array, int first, int last) {
 	int sum = 0;
 	for (int i = first; i <= last; i++) {
@@ -37,7 +36,7 @@ int main()
 	}
 	
 	int Q = 0;
-    fscanf(input,"%d",&Q);
+	fscanf(input,"%d",&Q);
 
 	struct node querrie[Q];
     
