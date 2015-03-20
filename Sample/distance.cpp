@@ -4,6 +4,8 @@
 
 using namespace std;
 
+#define MAX_N = 1000;
+
 int main() {
 	
 	float max = 0, bestMax = -10000;
@@ -11,10 +13,7 @@ int main() {
 	
 	cin >> N;
 	
-	int *xi, *yi;
-	
-	xi = new int[N];
-	yi = new int[N];
+	int xi[MAX_N], yi[MAX_N];
 	
 	for (int i = 0; i < N; ++i) {
 	    cin >> xi[i] >> yi[i];
@@ -25,7 +24,7 @@ int main() {
 	        
 	        float dis = sqrt((xi[i] - xi[j])*(xi[i] - xi[j]) + (yi[i] - yi[j])*(yi[i] - yi[j]));
 	       
-	        abs(dis);
+	        dis =  abs(dis);
 	        max = dis;
 	        
 	        if ( max > bestMax ) {
