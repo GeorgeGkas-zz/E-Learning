@@ -15,21 +15,23 @@ int matrix[1000][1000];
 int DFS(int i) {
     int j;
     visited[i] = 1;
-
+    ++Start;
     for(j=0;j<N;j++) {
+    	++Start;
     	if( !visited[j] && matrix[i][j] == 1) {
+
+    		if( Start == End) {
+    			return 's';
+    		}
+
     		DFS(j);
     	}
-    	++Start;
     }
-
-    if( Start == End) {
-    	return 's';
-    }
-    else {
-    	return 'f';
-    }
+    return 'f';
 }
+
+
+
 
 int main() {
 
