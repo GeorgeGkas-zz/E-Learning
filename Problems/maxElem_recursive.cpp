@@ -4,16 +4,14 @@
 using namespace std;
 
 int maxelem(int N,int i, int best) {
+	if (N == 0) return best; // check if we run out of numbers to enter
 
-		if (N == 0) return best; // check if we run out of numbers to enter
+	cin >> i; // pass the element in current state
+	if ( i > best) { // check for max
+	best = i;
+	}
 
-		cin >> i; // pass the element in current state
-		if ( i > best) { // check for max
-		best = i;
-		}
-
-		maxelem(--N,i, best); // decrease the N by one.
-
+	maxelem(--N,i, best); // decrease the N by one.
 }
 
 int main() {
