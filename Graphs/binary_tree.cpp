@@ -1,5 +1,7 @@
 #include <iostream>
- 
+
+using namespace std;
+
 //Begin the construction of the BINARY TREE
 struct tree_node {
   tree_node *left;
@@ -9,7 +11,7 @@ struct tree_node {
 
 //Declaring the class
 class bst {
-  tree node *root; //creating the root of the binary tree
+  tree_node *root; //creating the root of the binary tree
   
   public:
     bst() {
@@ -44,7 +46,7 @@ void bst::insert(int item) {
     root = p;
   }
   else {
-    tree node *ptr;
+    tree_node *ptr;
     ptr = root;
     
     while (ptr != NULL) {
@@ -70,9 +72,9 @@ void bst::in_order_trav() {
 
 void bst::in_order(tree_node *ptr) {
   if (ptr!=NULL) {
-    inorder(ptr->left);
+    in_order(ptr->left);
     cout << " " << ptr->data << "     ";
-    inorder(ptr->right);
+    in_order(ptr->right);
   }
 }
 // End
@@ -87,8 +89,8 @@ void bst::pre_order_trav() {
 void bst::pre_order(tree_node *ptr) {
   if (ptr!=NULL) {
     cout << "  " << ptr->data << "     ";
-    preorder(ptr->left);
-    preorder(ptr->right);
+    pre_order(ptr->left);
+    pre_order(ptr->right);
   }
 }
 // End
@@ -111,8 +113,16 @@ void bst::post_order(tree_node *ptr) {
 /***********************************************************/
 
 int main() {
-  bst bin_tree(); //create the Binary Tree
-  bin_tree.insert(/*number*/); 
+  bst bin_tree; //create the Binary Tree
+  bin_tree.insert(20);
+  bin_tree.insert(30); 
+  bin_tree.insert(52);  
+  bin_tree.insert(254); 
+  bin_tree.insert(2); 
+  bin_tree.insert(24); 
+  bin_tree.insert(2); 
+  bin_tree.insert(42); 
+  bin_tree.insert(59); 
   bin_tree.in_order_trav(); //in order traversal
   bin_tree.pre_order_trav(); //pre order traversal
   bin_tree.post_order_trav(); //post order traversal
