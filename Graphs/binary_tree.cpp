@@ -1,4 +1,5 @@
 #include <iostream>
+
 using namespace std;
 
 //Begin the construction of the BINARY TREE
