@@ -26,11 +26,11 @@ class bst {
     
     //Graph Traversal of Binary Tree
     void in_order_trav();
-    void in_order(tree node *);
+    void in_order(tree_node *);
     void pre_order_trav();
-    void pre_order(tree node *);
+    void pre_order(tree_node *);
     void post_order_trav();
-    void post_order(tree node *);
+    void post_order(tree_node *);
 };
 
 void bst::insert(int item) {
