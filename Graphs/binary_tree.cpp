@@ -35,35 +35,44 @@ class bst {
     void post_order(tree_node *);
 };
 
+/*************Insert Procedure*****************************/
+// Begin
 void bst::insert(int item) {
-  tree_node *p = new tree_node;
-  tree_node *parent;
-  p->left = NULL;
-  p->right = NULL;
-  parent = NULL;
-  
-  if (is_empty()) {
-    root = p;
-  }
-  else {
-    tree_node *ptr;
-    ptr = root;
-    
-    while (ptr != NULL) {
-      parent = ptr;
-      
-      if (item > ptr->data)
-        ptr = ptr->right;
+  tree_node* t = new tree_node;
+   tree_node* parent;
+   t->data = item;
+   t->left = NULL;
+   t->right = NULL;
+   parent = NULL;
+
+   // is this a new tree?
+   if(is_empty()) root = t;
+   else
+   {
+      //Note: ALL insertions are as leaf nodes
+      tree_node* curr;
+      curr = root;
+      // Find the Node's parent
+      while(curr)
+      {
+         parent = curr;
+         if(t->data > curr->data) curr = curr->right;
+         else curr = curr->left;
+      }
+
+      if(t->data < parent->data)
+      {
+         parent->left = t;
+      }
       else
-        ptr = ptr->left;
+      {
+      parent->right = t;
+      }
     }
-    
-    if (item < parent->data) 
-      parent->left = p;
-    else
-      parent->right = p;
-  }
 }
+// End
+/***********************************************************/
+
 /*************In Order Traversal*****************************/
 // Begin
 void bst::in_order_trav() {
@@ -113,18 +122,17 @@ void bst::post_order(tree_node *ptr) {
 /***********************************************************/
 
 int main() {
-  bst bin_tree; //create the Binary Tree
-  bin_tree.insert(20);
-  bin_tree.insert(30); 
-  bin_tree.insert(52);  
-  bin_tree.insert(254); 
-  bin_tree.insert(2); 
-  bin_tree.insert(24); 
-  bin_tree.insert(2); 
-  bin_tree.insert(42); 
-  bin_tree.insert(59); 
-  bin_tree.in_order_trav(); //in order traversal
-  bin_tree.pre_order_trav(); //pre order traversal
-  bin_tree.post_order_trav(); //post order traversal
+  bst b;
+  b.insert(52);
+  b.insert(25);
+  b.insert(50);
+  b.insert(15);
+  b.insert(40);
+  b.insert(45);
+  b.insert(20); cout<<"inorder"<<endl;
+  b.in_order_trav();
+  cout<<endl<<"postorder"<<endl;
+  b.post_order_trav();
+  cout<<endl<<"preorder"<<endl;
+  b.pre_order_trav();
 }
-
