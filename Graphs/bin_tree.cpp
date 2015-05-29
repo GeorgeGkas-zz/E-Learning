@@ -256,7 +256,27 @@ void bst::bfs() {
 }
 
 void bst::bfs_bst(tree_node *ptr) {
+  queue<tree_node*> q;
+
+  if (ptr != NULL) {
+    q.push(ptr);
+    cout << ptr->data << " ";  
+  } 
   
+  while (!q.empty()) {
+    const tree_node * const temp_node = q.front(); 
+    q.pop();
+
+    if (temp_node->left != NULL) {
+      q.push(temp_node->left);
+      cout << temp_node->left->data << " ";
+    } 
+
+    if (temp_node->right != NULL) {
+      q.push(temp_node->right);
+      cout << temp_node->right->data << " ";
+    } 
+  }
 }
 // End
 /***********************************************************/
@@ -278,4 +298,6 @@ int main() {
   cout << "remove" << endl;
   b.remove(15);
   b.dfs();
+  cout << endl;
+  b.bfs();
 }
