@@ -38,37 +38,34 @@ class bst {
 /*************Insert Procedure*****************************/
 // Begin
 void bst::insert(int item) {
-  tree_node* t = new tree_node;
-   tree_node* parent;
-   t->data = item;
-   t->left = NULL;
-   t->right = NULL;
-   parent = NULL;
+  tree_node *p = new tree_node;
+  tree_node *parent;
+  p->data = item;
+  p->left = NULL;
+  p->right = NULL;
+  parent = NULL;
 
-   // is this a new tree?
-   if(is_empty()) root = t;
-   else
-   {
-      //Note: ALL insertions are as leaf nodes
-      tree_node* curr;
-      curr = root;
-      // Find the Node's parent
-      while(curr)
-      {
-         parent = curr;
-         if(t->data > curr->data) curr = curr->right;
-         else curr = curr->left;
-      }
+  if (is_empty()) {
+    root = p;
+  }
+  else {
+    tree_node *ptr;
+    ptr = root;
 
-      if(t->data < parent->data)
-      {
-         parent->left = t;
-      }
+    while (ptr != NULL) {
+      parent = ptr;
+
+      if (item > ptr->data)
+        ptr = ptr->right;
       else
-      {
-      parent->right = t;
-      }
+        ptr = ptr->left;
     }
+
+    if (item < parent->data) 
+      parent->left = p;
+    else
+      parent->right = p;
+  }
 }
 // End
 /***********************************************************/
