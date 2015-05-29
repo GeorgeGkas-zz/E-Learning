@@ -60,10 +60,8 @@ void bst::insert(int item) {
     while (ptr != NULL) {
       parent = ptr;
 
-      if (item > ptr->data)
-        ptr = ptr->right;
-      else
-        ptr = ptr->left;
+      if (item > ptr->data) ptr = ptr->right;
+      else ptr = ptr->left;
     }
 
     if (item < parent->data) 
@@ -269,4 +267,6 @@ int main() {
   b.dfs();
   cout << endl;
   b.bfs();
+  cout << endl;
+  return 0;
 }
