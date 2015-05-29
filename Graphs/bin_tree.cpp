@@ -1,6 +1,9 @@
 #include <iostream>
+#include <queue>
 
-using namespace std;
+using std::cout;
+using std::queue;
+using std::endl;
 
 //Begin the construction of the BINARY TREE
 struct tree_node {
@@ -28,11 +31,17 @@ class bst {
     
     //Graph Traversal of Binary Tree
     void in_order_trav();
-    void in_order(tree_node *);
     void pre_order_trav();
-    void pre_order(tree_node *);
     void post_order_trav();
+    void dfs();
+    void bfs();
+
+  private:
+    void in_order(tree_node *);
+    void pre_order(tree_node *);
     void post_order(tree_node *);
+    void dfs_bst(tree_node *);
+    void bfs_bst(tree_node *);
 };
 
 /*************Insert Procedure*****************************/
@@ -215,11 +224,39 @@ void bst::post_order_trav() {
 }
 
 void bst::post_order(tree_node *ptr) {
-  if(ptr!=NULL) {
+  if (ptr!=NULL) {
     post_order(ptr->left);
     post_order(ptr->right);
     cout << "  " << ptr->data << "     ";
   }
+}
+// End
+/***********************************************************/
+
+/****************Dfs Traversal*****************************/
+// Begin
+void bst::dfs() {
+  dfs_bst(root);
+}
+
+void bst::dfs_bst(tree_node *ptr) {
+  if (ptr!=NULL) {
+    cout << "  " << ptr->data << "     ";
+    dfs_bst(ptr->left);
+    dfs_bst(ptr->right);
+  }
+}
+// End
+/***********************************************************/
+
+/****************Bfs Traversal*****************************/
+// Begin
+void bst::bfs() {
+  bfs_bst(root);
+}
+
+void bst::bfs_bst(tree_node *ptr) {
+  
 }
 // End
 /***********************************************************/
@@ -240,4 +277,5 @@ int main() {
   b.pre_order_trav();
   cout << "remove" << endl;
   b.remove(15);
+  b.dfs();
 }
