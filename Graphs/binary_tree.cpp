@@ -16,7 +16,7 @@ class bst {
       root = NULL; //intialize the default construction, set the root to NULL
     }
     
-    bool is_empty() { //check for empty graph
+    int is_empty() { //check for empty graph
       return (root == NULL);
     }
     
@@ -70,10 +70,10 @@ void bst::in_order_trav() {
 
 void bst::in_order(tree_node *ptr) {
   if (ptr!=NULL) {
-		inorder(ptr->left);
-		cout << " " << ptr->data << "     ";
-		inorder(ptr->right);
-	}
+    inorder(ptr->left);
+    cout << " " << ptr->data << "     ";
+    inorder(ptr->right);
+  }
 }
 // End
 /***********************************************************/
@@ -81,15 +81,15 @@ void bst::in_order(tree_node *ptr) {
 /*************Pre Order Traversal*****************************/
 // Begin
 void bst::pre_order_trav() {
-	pre_order(root);
+  pre_order(root);
 }
 
 void bst::pre_order(tree_node *ptr) {
-	if (ptr!=NULL) {
-		cout << "  " << ptr->data << "     ";
-		preorder(ptr->left);
-		preorder(ptr->right);
-	}
+  if (ptr!=NULL) {
+    cout << "  " << ptr->data << "     ";
+    preorder(ptr->left);
+    preorder(ptr->right);
+  }
 }
 // End
 /***********************************************************/
@@ -97,15 +97,15 @@ void bst::pre_order(tree_node *ptr) {
 /*************Post Order Traversal*****************************/
 // Begin
 void bst::post_order_trav() {
-	post_order(root);
+  post_order(root);
 }
 
 void bst::post_order(tree_node *ptr) {
-	if(ptr!=NULL) {
-		post_order(ptr->left);
-		post_order(ptr->right);
-		cout << "  " << ptr->data << "     ";
-	}
+  if(ptr!=NULL) {
+    post_order(ptr->left);
+    post_order(ptr->right);
+    cout << "  " << ptr->data << "     ";
+  }
 }
 // End
 /***********************************************************/
