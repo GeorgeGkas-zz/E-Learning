@@ -127,3 +127,31 @@ int main() {
   bin_tree.pre_order_trav(); //pre order traversal
   bin_tree.post_order_trav(); //post order traversal
 }
+
+/*
+/tmp/ccMbxfVH.o: In function `bst::insert(int)':
+bintree.cpp:(.text+0x15): undefined reference to `operator new(unsigned long)'
+/tmp/ccMbxfVH.o: In function `bst::in_order(tree_node*)':
+bintree.cpp:(.text+0x125): undefined reference to `std::cout'
+bintree.cpp:(.text+0x12a): undefined reference to `std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)'
+bintree.cpp:(.text+0x134): undefined reference to `std::ostream::operator<<(int)'
+bintree.cpp:(.text+0x141): undefined reference to `std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)'
+/tmp/ccMbxfVH.o: In function `bst::pre_order(tree_node*)':
+bintree.cpp:(.text+0x1ad): undefined reference to `std::cout'
+bintree.cpp:(.text+0x1b2): undefined reference to `std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)'
+bintree.cpp:(.text+0x1bc): undefined reference to `std::ostream::operator<<(int)'
+bintree.cpp:(.text+0x1c9): undefined reference to `std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)'
+/tmp/ccMbxfVH.o: In function `bst::post_order(tree_node*)':
+bintree.cpp:(.text+0x278): undefined reference to `std::cout'
+bintree.cpp:(.text+0x27d): undefined reference to `std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)'
+bintree.cpp:(.text+0x287): undefined reference to `std::ostream::operator<<(int)'
+bintree.cpp:(.text+0x294): undefined reference to `std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)'
+/tmp/ccMbxfVH.o: In function `__static_initialization_and_destruction_0(int, int)':
+bintree.cpp:(.text+0x39a): undefined reference to `std::ios_base::Init::Init()'
+bintree.cpp:(.text+0x3a9): undefined reference to `std::ios_base::Init::~Init()'
+collect2: error: ld returned 1 exit status
+
+
+
+
+*/
