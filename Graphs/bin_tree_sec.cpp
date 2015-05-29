@@ -71,64 +71,64 @@ int bst::has_two_children(tree_node *curr) {
 
 void bst::remove_leaf(tree_node *curr, tree_node *parent) {
   if (parent->left == curr) {
-      parent->left = NULL;
-    }
-    else {
-      parent->right = NULL;
-    }
-    delete curr;
-    return;
+    parent->left = NULL;
+  }
+  else {
+    parent->right = NULL;
+  }
+  delete curr;
+  return;
 }
 
 void bst::remove_single_child(tree_node *curr, tree_node *parent) {
   if (curr->left == NULL && curr->right != NULL) {
-      if (parent->left == curr) {
-        parent->left = curr->right;
-        delete curr;
+    if (parent->left == curr) {
+      parent->left = curr->right;
+      delete curr;
       }
-      else {
-        parent->right = curr->left;
-        delete curr;
-      }
+    else {
+      parent->right = curr->left;
+      delete curr;
     }
-    return;
+  }
+  return;
 }
 
 void bst::remove_double_child(tree_node *curr, tree_node *parent) {
-      tree_node* chkr;
-    chkr = curr->right;
-    if ((chkr->left == NULL) && (chkr->right == NULL)) {
-      curr = chkr;
-      delete chkr;
-      curr->right = NULL;
-    }
-    else { 
-      // right child has children 
-      // if the node's right child has a left child
-      // Move all the way down left to locate smallest element
+  tree_node* chkr;
+  chkr = curr->right;
+  if ((chkr->left == NULL) && (chkr->right == NULL)) {
+    curr = chkr;
+    delete chkr;
+    curr->right = NULL;
+  }
+  else { 
+    // right child has children 
+    // if the node's right child has a left child
+    // Move all the way down left to locate smallest element
 
-      if ((curr->right)->left != NULL) {
-        tree_node* lcurr;
-        tree_node* lcurrp;
-        lcurrp = curr->right;
-        lcurr = (curr->right)->left;
-        while (lcurr->left != NULL) {
-          lcurrp = lcurr;
-          lcurr = lcurr->left;
-        }
-        curr->data = lcurr->data;
-        delete lcurr;
-        lcurrp->left = NULL;
+    if ((curr->right)->left != NULL) {
+      tree_node* lcurr;
+      tree_node* lcurrp;
+      lcurrp = curr->right;
+      lcurr = (curr->right)->left;
+      while (lcurr->left != NULL) {
+        lcurrp = lcurr;
+        lcurr = lcurr->left;
       }
-      else {
-        tree_node* tmp;
-        tmp = curr->right;
-        curr->data = tmp->data;
-        curr->right = tmp->right;
-        delete tmp;
-      }
+      curr->data = lcurr->data;
+      delete lcurr;
+      lcurrp->left = NULL;
     }
-    return;
+    else {
+      tree_node* tmp;
+      tmp = curr->right;
+      curr->data = tmp->data;
+      curr->right = tmp->right;
+      delete tmp;
+    }
+  }
+  return;
 }
 
 void bst::insert(int item) {
@@ -145,20 +145,23 @@ void bst::insert(int item) {
   else {
     tree_node *ptr;
     ptr = root;
-
     while (ptr != NULL) {
       parent = ptr;
 
-      if (item > ptr->data)
+      if (item > ptr->data) {
         ptr = ptr->right;
-      else
+      }
+      else {
         ptr = ptr->left;
+      }
     }
 
-    if (item < parent->data) 
+    if (item < parent->data) {
       parent->left = p;
-    else
+    }
+    else {
       parent->right = p;
+    }
   }
 }
 
@@ -195,8 +198,6 @@ void bst::remove(int item) {
   // 1. We're removing a leaf node
   // 2. We're removing a node with a single child
   // 3. we're removing a node with 2 children
-
-  
 
   if (is_leaf(curr)) {
     remove_leaf(curr, parent);
