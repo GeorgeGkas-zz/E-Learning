@@ -4,7 +4,7 @@ int dfs(int i) {
    // some print function or whatever! 
    for (j = 0; j < NNodes; j++) {
       if (adjMatrix[i][j] > 0 && !visited[j]) {
-         dfs(j);       // Visit node
+         dfs(j); // Visit node
       }
    }
 }
@@ -16,12 +16,12 @@ void dfs(int start) {
    vector<int>::iterator it;
    while (s.empty() == 0) {
       temp=s.top();
-       s.pop();
-       status[temp]=1; // marked as visited , 0 means unvisited
-       cout << temp << endl;
+      s.pop();
+      status[temp]=1; // marked as visited , 0 means unvisited
+      cout << temp << endl;
       for(it = list[temp].begin(); it != list[temp].end(); it++) {
          j = *it;
-         if (status[j]==0) {
+         if (status[j] == 0) {
             s.push(j);
             status[j] = 2; // means that it is in stack        
          }
