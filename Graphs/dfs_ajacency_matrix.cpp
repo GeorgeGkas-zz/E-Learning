@@ -12,11 +12,7 @@
          }
       }
    }
-   
-   //DFS:
-//ok now the quetions:
-//  I named an adjacency list. Can i made it to matrix as well?
-//  if not then I need to know more about adjacency lists!
+
 void dfs(int start)
 {
     int j,temp; 
