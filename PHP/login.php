@@ -1,8 +1,8 @@
 <?php
-    define("DB_HOST", 'mysql2.000webhost.com');
-    define("DB_USER", 'a4842672_georgeg');
-    define("DB_PASSWORD", 'O9e0IeJJe90p59');
-    define("DB_DATABSE", 'a4842672_lefromd');
+    define("DB_HOST", '');
+    define("DB_USER", '');
+    define("DB_PASSWORD", '');
+    define("DB_DATABSE", '');
 
     $conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
     mysql_select_db(DB_DATABSE, $conn);
