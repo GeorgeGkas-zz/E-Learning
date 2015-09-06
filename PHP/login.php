@@ -1,5 +1,9 @@
 <?php
-    define("DB_HOST", '');
+    session_start();
+    if (isset($_SESSION['username']) && isset($_SESSION['email']) && isset($_SESSION['uid']) && $_SESSION['login']) {
+        header('Location: home.php');
+    }
+    define("DB_HOST", 'mysql2.000webhost.com');
     define("DB_USER", '');
     define("DB_PASSWORD", '');
     define("DB_DATABSE", '');
@@ -62,4 +66,6 @@
             }
         }
     }
+
+
 ?>
