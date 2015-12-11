@@ -1,0 +1,75 @@
+ $('#update_profile').click(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: 'lib/preferences.php',
+            data: {
+                email: $('#pref-changes input[name="email"]').val(),
+                pass: $('#pref-changes input[name="pass"]').val(),
+                username, $('#pref-changes input[name="username"]').val(),
+
+            },
+            dataType: "html",
+            success: function(data){
+                    window.location.href = data;
+                }
+        });
+});
+
+<form class="pref-changes" id="pref-changes">
+      <div class="pref_avatar">
+        <div class="avatar_change">Change</div>
+      </div> 
+        <div style="margin-top: 10px;">
+            <label >Change Username</label>
+           <input name="username" class="pref_inp"  placeholder="GeorgeGkas" type="text">
+        </div>
+
+        <div class="lbl">
+            <label>Change Email</label>
+           <input name="email" class="pref_inp" placeholder="georgegkas@gmail.com" type="email">
+        </div>
+         <div class="lbl">
+            <label>Change Password</label>
+           <input name="pass" class="pref_inp" placeholder="Password" type="password" >
+        </div>
+        
+        <div class="update_btn">
+          <button type="submit" id="update_profile" name="update_profile">Update</button>
+        </div>
+
+</form>
+      
+<?php
+  session_start();
+  
+    define("DB_HOST", 'mysql6.000webhost.com');
+    define("DB_USER", '');
+    define("DB_PASSWORD", '');
+    define("DB_DATABSE", '');
+    $UserEmail = $_SESSION['login'];
+    $conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
+    mysql_select_db(DB_DATABSE, $conn);
+    //$qr = mysql_query("SELECT Id FROM Users WHERE UserEmail = '".$UserEmail."'");
+   // echo  $UserInfo[0], $UserInfo[1],$UserInfo[2],$UserInfo[3], $UserInfo[4];
+    if ($email != "") {
+      $sql = "UPDATE Users SET UserEmail='".$email."' WHERE UserEmail=".$UserEmail."";
+      mysql_query($conn, $sql);
+      //mysql_query("INSERT INTO Users(UserEmail) values('".$email."')") or die(mysql_error());
+    }
+
+    if ($pass != "") {
+      $sql = "UPDATE Users SET UserPass='".$pass."' WHERE UserEmail=".$UserEmail."";
+      mysql_query($conn, $sql);
+       //mysql_query("INSERT INTO Users(UserPass) values('".$pass."')") or die(mysql_error());
+    }
+
+    if ($username != "") {
+      $sql = "UPDATE Users SET UserName='".$username."' WHERE UserEmail=".$UserEmail."";
+      mysql_query($conn, $sql);
+       //mysql_query("INSERT INTO Users(UserName) values('".$username."')") or die(mysql_error());
+    }
+    $host  = $_SERVER['HTTP_HOST'];
+    $link = "http://$host/home.php";
+    echo $link;
+?> 
