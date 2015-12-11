@@ -1,3 +1,4 @@
+--------------------HOME.JS--------------------
  $('#update_profile').click(function(e) {
         e.preventDefault();
         $.ajax({
@@ -16,6 +17,8 @@
         });
 });
 
+
+--------------------HOME.JS--------------------
 <form class="pref-changes" id="pref-changes">
       <div class="pref_avatar">
         <div class="avatar_change">Change</div>
@@ -39,7 +42,9 @@
         </div>
 
 </form>
-      
+ 
+ 
+ --------------------PREFERENCES.PHP--------------------
 <?php
   session_start();
   
