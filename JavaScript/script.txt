@@ -20,21 +20,23 @@
 
 --------------------HOME.JS--------------------
 <form class="pref-changes" id="pref-changes">
-      <div class="pref_avatar">
-        <div class="avatar_change">Change</div>
-      </div> 
+        <div class="pref_avatar">
+           <div class="avatar_change">Change</div>
+        </div> 
+        
         <div style="margin-top: 10px;">
-            <label >Change Username</label>
-           <input name="username" class="pref_inp"  placeholder="GeorgeGkas" type="text">
+           <label>Change Username</label>
+           <input name="username" class="pref_inp" placeholder="GeorgeGkas" type="text">
         </div>
 
         <div class="lbl">
-            <label>Change Email</label>
+           <label>Change Email</label>
            <input name="email" class="pref_inp" placeholder="georgegkas@gmail.com" type="email">
         </div>
-         <div class="lbl">
-            <label>Change Password</label>
-           <input name="pass" class="pref_inp" placeholder="Password" type="password" >
+        
+        <div class="lbl">
+           <label>Change Password</label>
+           <input name="pass" class="pref_inp" placeholder="Password" type="password">
         </div>
         
         <div class="update_btn">
@@ -55,25 +57,22 @@
     $UserEmail = $_SESSION['login'];
     $conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
     mysql_select_db(DB_DATABSE, $conn);
-    //$qr = mysql_query("SELECT Id FROM Users WHERE UserEmail = '".$UserEmail."'");
-   // echo  $UserInfo[0], $UserInfo[1],$UserInfo[2],$UserInfo[3], $UserInfo[4];
+    
     if ($email != "") {
       $sql = "UPDATE Users SET UserEmail='".$email."' WHERE UserEmail=".$UserEmail."";
       mysql_query($conn, $sql);
-      //mysql_query("INSERT INTO Users(UserEmail) values('".$email."')") or die(mysql_error());
     }
 
     if ($pass != "") {
       $sql = "UPDATE Users SET UserPass='".$pass."' WHERE UserEmail=".$UserEmail."";
       mysql_query($conn, $sql);
-       //mysql_query("INSERT INTO Users(UserPass) values('".$pass."')") or die(mysql_error());
     }
 
     if ($username != "") {
       $sql = "UPDATE Users SET UserName='".$username."' WHERE UserEmail=".$UserEmail."";
       mysql_query($conn, $sql);
-       //mysql_query("INSERT INTO Users(UserName) values('".$username."')") or die(mysql_error());
     }
+    
     $host  = $_SERVER['HTTP_HOST'];
     $link = "http://$host/home.php";
     echo $link;
