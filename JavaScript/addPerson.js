@@ -1,29 +1,29 @@
-var find_xmlHttp = createfind_xmlHttpRequestObject();
-var add_find_xmlHttp = createfind_xmlHttpRequestObject();
+var find_xmlHttp = create_xmlHttpRequestObject();
+var add_xmlHttp = create_xmlHttpRequestObject();
 
-function createfind_xmlHttpRequestObject() {
-    var find_xmlHttp;
+function create_xmlHttpRequestObject() {
+    var xmlHttp;
 
     if (window.ActiveXObject) {
         try {
-            find_xmlHttp = new ActiveXObject("Microsoft.find_xmlHttp");
+            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
         } catch(e) {
-            find_xmlHttp = false;
+            xmlHttp = false;
         }
     }
     else {
         try {
-            find_xmlHttp = new find_xmlHttpRequest();
+            xmlHttp = new xmlHttpRequest();
         } catch(e) {
-            find_xmlHttp = false;
+            xmlHttp = false;
         }
     }
 
-    if (!find_xmlHttp) {
+    if (!xmlHttp) {
         alert("Can't create XML Object");
     }
     else {
-        return find_xmlHttp;
+        return xmlHttp;
     }
 }
 
@@ -74,19 +74,19 @@ function Find_handleServerResponse() {
 }
 
 function AjaxAddPerson() {
-    if (find_xmlHttp.readyState == 0 || find_xmlHttp.readyState == 4) {
+    if (add_xmlHttp.readyState == 0 || add_xmlHttp.readyState == 4) {
         person = encodeURIComponent(document.getElementById("PersonSearchInput").value);
-        find_xmlHttp.open("GET", "../lib/addPerson.php?person=" + person, true);
-        find_xmlHttp.onreadystatechange = Add_handleServerResponse;
-        find_xmlHttp.send();
+        add_xmlHttp.open("GET", "../lib/addPerson.php?person=" + person, true);
+        add_xmlHttp.onreadystatechange = Add_handleServerResponse;
+        add_xmlHttp.send();
 
     }
 }
 
 function Add_handleServerResponse() {
-    if (add_find_xmlHttp.readyState == 4 ) {
-        if (add_find_xmlHttp.status == 200) {
-            xmlResponse = add_find_xmlHttp.responseXML;
+    if (add_xmlHttp.readyState == 4 ) {
+        if (add_xmlHttp.status == 200) {
+            xmlResponse = add_xmlHttp.responseXML;
             xmlDocumentElement = xmlResponse.documentElement;
             var result = JSON.parse(xmlDocumentElement.firstChild.data);
 
@@ -101,7 +101,7 @@ function Add_handleServerResponse() {
             setTimeout(AjaxFindPerson, 1000);
         }
         else {
-            alert('Somenthing went wrong when tried to get data from server'+ add_find_xmlHttp.readyState);
+            alert('Somenthing went wrong when tried to get data from server'+ add_xmlHttp.readyState);
         }
     }
 }
