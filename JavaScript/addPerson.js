@@ -13,7 +13,7 @@ function create_xmlHttpRequestObject() {
     }
     else {
         try {
-            xmlHttp = new xmlHttpRequest();
+            xmlHttp = new XMLHttpRequest();
         } catch(e) {
             xmlHttp = false;
         }
@@ -68,20 +68,12 @@ function Find_handleServerResponse() {
             setTimeout(AjaxFindPerson, 1000);
         }
         else {
-            alert('Somenthing went wrong when tried to get data from server'+ find_xmlHttp.readyState);
+            alert('Somenthing went wrong when tried to get data from server'+ find_xmlHttp.status);
         }
     }
 }
 
-function AjaxAddPerson() {
-    if (add_xmlHttp.readyState == 0 || add_xmlHttp.readyState == 4) {
-        person = encodeURIComponent(document.getElementById("PersonSearchInput").value);
-        add_xmlHttp.open("GET", "../lib/addPerson.php?person=" + person, true);
-        add_xmlHttp.onreadystatechange = Add_handleServerResponse;
-        add_xmlHttp.send();
 
-    }
-}
 
 function Add_handleServerResponse() {
     if (add_xmlHttp.readyState == 4 ) {
@@ -91,17 +83,30 @@ function Add_handleServerResponse() {
             var result = JSON.parse(xmlDocumentElement.firstChild.data);
 
             if (result['found']) {
-                alert(result['msg']);
-                document.getElementById("PersonSearchInput").value = "";
+                alert('OK')
             }
             else {
-                alert(result['msg']);
+                alert('NO' + ' why?');
             }
 
-            setTimeout(AjaxFindPerson, 1000);
+            //setTimeout(AjaxFindPerson, 1000);
         }
         else {
-            alert('Somenthing went wrong when tried to get data from server'+ add_xmlHttp.readyState);
+           alert('NO ' + add_xmlHttp.status + ' ' + add_xmlHttp.readyState);
+
         }
     }
 }
+
+function AddPerson() {
+        if ((add_xmlHttp.readyState == 0 || add_xmlHttp.readyState == 4) && document.getElementById("PersonSearchInput").value != "") {
+        person = encodeURIComponent(document.getElementById("PersonSearchInput").value);
+        add_xmlHttp.open("GET", "../lib/addPerson.php?email=" + person, true);
+        add_xmlHttp.onreadystatechange = Add_handleServerResponse;
+        add_xmlHttp.send();
+
+    }
+    else {
+       alert('COULD NOT UPDATE!');
+    }
+} 
