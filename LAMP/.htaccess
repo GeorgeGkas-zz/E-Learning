@@ -1,0 +1,11 @@
+<IfModule php5_module>
+    php_flag session.cookie_httponly 1
+    php_flag session.cookie_lifetime 0
+    php_flag session.use_cookies 1
+    php_flag session.use_strict_mode 1
+    php_flag session.use_only_cookies 1
+    php_flag session.use_trans_sid 0
+    php_flag session.hash_function 1
+    php_flag session.entropy_file '/dev/urandom'
+    php_flag session.entropy_length 256
+</IfModule>
